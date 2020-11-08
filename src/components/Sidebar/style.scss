@@ -1,0 +1,108 @@
+$red: #590000;
+$brown: #9D730B;
+
+@mixin transition($s) {
+    -webkit-transition: all $s ease;
+    -moz-transition: all $s ease;
+    -o-transition: all $s ease;
+    -ms-transition: all $s ease;
+    transition: all $s ease;
+}
+
+@mixin border-radius($r) {
+    -webkit-border-radius: $r;
+    -moz-border-radius: $r;
+    -o-border-radius: $r;
+    -ms-border-radius: $r;
+    border-radius: $r;
+}
+
+@mixin transform($value) {
+    -webkit-transform: $value;
+    -moz-transform: $value;
+    -o-transform: $value;
+    -ms-transform: $value;
+    transform: $value;
+}
+
+.collapse-btn {
+    position: relative;
+    display: block;
+}
+
+.sidebar {
+    .sidebar-item {
+        padding-bottom: 30px;
+
+        &+.sidebar-item {
+            padding-top: 35px;
+            border-top: 1px solid #DDDDDD;
+        }
+
+        .item-head {
+            margin-bottom: 17px;
+
+            .collapse-btn {
+                width: 100%;
+                font-size: 30px;
+                font-weight: 300;
+                line-height: 36px;
+                text-align: left;
+                color: #231F20 !important;
+                background: transparent !important;
+                padding: 0;
+                border: 0 !important;
+                box-shadow: none !important;
+                outline: none !important;
+                @include transition(0.3s);
+
+                &:hover {
+                    color: $red !important;
+                }
+            }
+        }
+
+        .item-main {
+            max-height: 300px;
+            overflow: auto;
+
+            &::-webkit-scrollbar-track {
+                border-radius: 10px;
+                background-color: #F5F5F5;
+            }
+
+            &::-webkit-scrollbar {
+                width: 8px;
+                background-color: #F5F5F5;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                border-radius: 10px;
+                background-color: $red;
+            }
+        }
+    }
+}
+
+.list {
+    &-1 {
+        padding-left: 0;
+        list-style-type: none;
+        margin: 0;
+
+        li {
+            display: block;
+            font-size: 18px;
+            line-height: 36px;
+            margin: 0;
+            color: #333;
+            cursor: pointer;
+            @include transition(0.3s);
+
+            &:hover,
+            &.active {
+                color: $red;
+            }
+        }
+    }
+}
